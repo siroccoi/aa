@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .box {
+            width: 100%;
+            height: 40px;
+            background-color: #01204f;
+            margin: 50px auto;
+            position: relative;
+        }
+        li {
+            float: left;
+            color: #ffffff;
+            font-weight: 900;
+            padding: 0 10px;
+            line-height: 40px;
+            position: relative;
+            z-index: 99;
+        }
+        .mask {
+            width: 70px;
+            height: 40px;
+            background-color: #cc0000;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        li:nth-of-type(1){
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li>首页</li>
+        <li>国内</li>
+        <li>国际</li>
+        <li>军事</li>
+        <li>财经</li>
+        <li>娱乐</li>
+        <li>体育</li>
+        <li>互联网</li>
+        <li>科技</li>
+        <li>游戏</li>
+        <li>女人</li>
+        <li>汽车</li>
+        <li>房产</li>
+        <li>个性推荐</li>
+    </ul>
+    <div class="mask"></div>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+
+<script>
+
+    var width = $('li').eq(0).width() +20;
+    $('.mask').width(width);
+
+    $('li').hover(function () {
+        $('.mask').stop().animate({
+            left:$(this).offset().left,
+            width:$(this).width() + 20
+        }, 300)
+    },function () {
+        $('.mask').stop().animate({
+            left:0,
+            width:width
+        },300)
+    })
+</script>
+</html>
